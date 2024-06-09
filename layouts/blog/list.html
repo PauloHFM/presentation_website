@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main>
+  <header>
+    <!-- O título da página de blog -->
+    <h1>{{ .Title }}</h1>
+  </header>
+  <!-- O conteúdo da página de blog, se houver -->
+  {{ .Content }}
+  <div class="posts-grid">
+    <!-- Itera sobre os posts do blog -->
+    {{ range .Site.Sections.posts.Pages }}
+    <article class="post">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <time>{{ .Date.Format "2 January 2006" }}</time>
+      <p>{{ .Summary }}</p>
+    </article>
+    {{ end }}
+  </div>
+</main>
+{{ end }}
