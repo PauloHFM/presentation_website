@@ -1,4 +1,4 @@
-baseURL = "http://www.paulohfm.com/"
+baseURL = "http://www.me.paulohfm.com/"
 title = "Paulo Henrique F. Macedo"
 theme = "coder"
 languageCode = "en"
@@ -161,6 +161,8 @@ name = "CV"
 icon = "fa-solid fa-id-card fa-2x"
 weight = 2
 url = "https://drive.google.com/file/d/1c8ZlG9FhbSOwFpdtOhVlTZZZ9D5Y1Qgy/view?usp=sharing"
+# How to make this in pt-br too?
+# https://drive.google.com/file/d/1B0mKu3fuaNd7fEyecyP4epi7IFqzkbQy/view?usp=drive_link
 
 # [[params.social]]
 # name = "Twitter"
@@ -184,7 +186,7 @@ url = "https://www.linkedin.com/in/paulohfm/"
 name = "RSS"
 icon = "fa-solid fa-rss fa-2x"
 weight = 6
-url = "https://paulohfm.com/index.xml"
+url = "https://me.paulohfm.com/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
 
