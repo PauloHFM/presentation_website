@@ -78,7 +78,6 @@ Check the pull-request build before merging an update.
 | `.github/workflows/hugo.yml` | Build check on PRs, deploy on `main` |
 | `CNAME` | Records the custom domain for reference |
 | `docs/TUTORIAL.md` | Long Hugo walkthrough based on this repo (optional reading) |
-| `plan.md` | Current to-do list / ideas |
 
 ## Domain
 
