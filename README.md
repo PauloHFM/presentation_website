@@ -20,11 +20,16 @@ cd presentation_website
 
 # 2. Install the tools (macOS shown; see docs/TUTORIAL.md for Linux/Windows)
 brew install hugo
-brew install sass/sass/sass     # Dart Sass, needed for Hugo 0.170+
+brew install dart-sass          # Dart Sass, needed for Hugo 0.170+
 
 # 3. Start the dev server (drafts included)
 hugo server -D
 ```
+
+> If Homebrew says it could not link `sass` because `/opt/homebrew/bin/sass`
+> already exists, that is the npm package (`npm install -g sass`). Hugo cannot
+> use it (build error `unexpected EOF when executing "sass"`). Fix it with
+> `brew link --overwrite dart-sass`; check with `sass --version`.
 
 Open <http://localhost:1313>. A production-like build is `hugo --gc --minify`
 (output goes to `public/`, which is git-ignored).

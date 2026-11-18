@@ -73,12 +73,17 @@ Hugo is one of the most popular open-source static site generators. It's written
 brew install hugo
 
 # Dart Sass (required for Hugo 0.170+)
-brew install sass/sass/sass
+brew install dart-sass
 
 # Verify installation
 hugo version
 sass --version
 ```
+
+> **Careful with npm's `sass`:** if `npm install -g sass` was ever run, its
+> `sass` command shadows Homebrew's and Hugo fails with
+> `unexpected EOF when executing "sass"`. Run `brew link --overwrite dart-sass`
+> (or `npm uninstall -g sass`) so that `sass` is the standalone Dart Sass.
 
 Optional: Go (only needed if you later use Hugo Modules instead of a
 theme submodule): `brew install go`.

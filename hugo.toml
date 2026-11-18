@@ -1,7 +1,7 @@
 baseURL = "https://me.paulohfm.com/"
 title = "Paulo Henrique F. Macedo"
 theme = "coder"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 
 enableEmoji = true
@@ -59,15 +59,11 @@ customRemoteJS = []
 # the Content-Security-Policy are configured under [params.*] and documented in the
 # theme: themes/coder/docs/analytics.md and themes/coder/docs/configurations.md
 
+  # The footer is layouts/partials/footer.html: "© <since> - <current year> <author>"
+  # (since = 2024 above; the year is computed at build time) plus these lines.
   [params.footer]
-    trademark = 2023
-    rss = true
-    copyright = true
-    author = true
-
-    topText = []
     bottomText = [
-      "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
+      "Powered by <a href=\"https://gohugo.io\">Hugo</a>",
     " & Made with &#10084; by <a href=\"https://github.com/PauloHFM\">Paulo</a>"
     ]
 
@@ -130,7 +126,7 @@ tag = "tags"
 author = "authors"
 
 [languages.en]
-languageName = ":us:"
+label = ":us:"
 
 [[languages.en.menu.main]]
 name = "About"
@@ -148,7 +144,7 @@ weight = 5
 url = "contact/"
 
 [languages.pt-br]
-languageName = ":brazil:"
+label = ":brazil:"
 title = "Paulo Henrique F. Macedo"
 
 [languages.pt-br.params]
