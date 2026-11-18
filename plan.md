@@ -1,33 +1,34 @@
-# TO-DO List and Other Things to Consider
+# To-do / ideas
 
-- **Blog Interface**: Maybe we can change the interface from list to grid. This can be done by changing the layout of the `index.html` file. We can also add a sidebar with categories, tags, and other information.
+Rough priority order. Ticked items are done.
 
-- **GitHub Repo with CI/CD**: Using a GitHub repository to store your site's source code is a good practice. It not only provides version control but also allows others to contribute to your project. Implementing Continuous Integration/Continuous Deployment (CI/CD) is a great way to automate the deployment of your site to the S3 bucket whenever you make changes to your GitHub repository.
+## Done
 
-- **Content-Security-Policy (CSP)**: Implementing a Content-Security-Policy (CSP) header can help protect your site from various types of attacks, such as Cross-Site Scripting (XSS) and data injection attacks. It defines the sources from which the browser can load resources for your site, reducing the risk of malicious code execution.
+- [x] GitHub repository with CI/CD to GitHub Pages (build check on PRs, deploy on `main`)
+- [x] RSS feed (`/index.xml`, linked in the footer/social icons)
+- [x] Bilingual site (EN / PT-BR)
+- [x] Hugo + theme update, theme as a real git submodule
 
-- **Custom Templates**: Creating your own templates will give your blog a unique look and feel. It will also give you more control over how your content is presented.
+## Next
 
-- **Analytics**: Understanding your audience and how they interact with your blog is crucial. Google Analytics is a powerful tool for this. You can add a Google Analytics tracking code to your site to start collecting data.
+1. **Write the first real posts.** The Tech Blog is empty (the theme demo
+   post was removed). `hugo new posts/my-post.md`, plus a `.pt-br.md` version.
+2. **Real favicon, avatar and icons.** `static/images/favicon.svg` is a
+   placeholder; the theme also links `favicon-16x16.png`, `favicon-32x32.png`,
+   `apple-touch-icon.png`, `site.webmanifest` and `safari-pinned-tab.svg`
+   (none exist yet). Decide between the Gravatar (current) or `avatarURL`.
+3. **Check "Enforce HTTPS" in Settings -> Pages**, so canonical URLs, the
+   sitemap and the RSS feed are `https://` (the live sitemap used `http://`).
+4. **PT-BR CV link.** The CV button uses a single link for both languages;
+   wire up the Portuguese CV per language (see the note in `hugo.toml`).
+5. **Projects page** (the menu entry is commented out for PT-BR).
 
-- **SEO Optimization**: SEO is essential for increasing the visibility of your blog. Hugo has built-in support for SEO best practices. You can also use an SEO checker tool like SEMRush or Moz for analysis and recommendations.
+## Later / optional
 
-- **RSS Feed**: An RSS feed allows users to subscribe to your blog and receive updates. Hugo can automatically generate an RSS feed for your blog. Make sure to link to it so your readers can find it.
-
-- **Social Media Sharing**: Make it easy for readers to share your content on social media. AddThis and ShareThis are tools that provide social share buttons you can add to your blog.
-
-- **Email Subscriptions**: Allow readers to subscribe to your blog via email. MailChimp is a popular tool that offers this service. You can embed a MailChimp signup form on your blog.
-
-- **Comments**: Disqus/QusDis is a great tool for adding a comment system to your blog. It's easy to integrate with Hugo.
-
-- **Contact Form**: Provide a way for your readers to contact you directly from your site. You can use a service like Formspree or Getform to handle form submissions on your static site.
-
-- **Search Functionality**: Help your readers find what they're looking for. Algolia provides a search API that's easy to integrate with Hugo.
-
-- **Performance Optimization**: Fast loading times are important for user experience and SEO. Use a tool like Google PageSpeed Insights to measure your site's performance and get suggestions for improvement.
-
-- **Accessibility and Responsiveness**: Make sure your blog is accessible to all users and devices. You can use an accessibility checker tool like aXe to find and fix accessibility issues. You can check mobile responsiveness with Google's Mobile-Friendly Test tool.
-
-- **Content Strategy**: Plan your content and maintain a consistent posting schedule. Tools like Trello or Asana can help you manage your content calendar.
-
-- **Monetization**: If you plan to monetize your blog, consider options like display ads, sponsored posts, affiliate marketing, or selling products or services. Google AdSense is a popular choice for display ads.
+- Privacy-friendly analytics (GoatCounter, Plausible, Umami... see
+  `themes/coder/docs/analytics.md`).
+- Search (e.g. Pagefind, which is static and needs no service).
+- Comments (the theme supports giscus, utterances, Disqus...).
+- Content-Security-Policy via the theme's `params.csp`.
+- Grid view for the blog list (an older version of the layout is in git history).
+- Social share image / Open Graph defaults.
