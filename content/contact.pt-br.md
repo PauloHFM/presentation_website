@@ -1,6 +1,6 @@
 +++
 title = "Contato"
-slug = "contato"
+slug = "contact"
 +++
 
 Pode me mandar um email em {{< email >}} ou uma mensagem no [LinkedIn](https://www.linkedin.com/in/paulohfm/)!

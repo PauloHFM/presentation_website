@@ -1,81 +1,92 @@
 # Personal Presentation Website
 
-Welcome to the Project Name repository! This project uses [Hugo](https://gohugo.io/) to generate a static website that is easy to maintain and deploy. Below you'll find all the information you need to get started, manage your domains, and understand the basics of this project.
+Source of <https://me.paulohfm.com>, a bilingual (English / Portuguese-BR) personal site built with [Hugo](https://gohugo.io/), the [Coder](https://github.com/luizdepra/hugo-coder) theme and deployed to GitHub Pages.
 
-## Getting Started with Hugo
+| Piece | Version / where |
+|-------|-----------------|
+| Hugo | 0.170.1 (pinned in `.github/workflows/hugo.yml`) |
+| Sass | Dart Sass (Hugo 0.170+ no longer bundles a Sass compiler) |
+| Theme | `themes/coder`, a git submodule pinned to upstream commit `c83ad86` (v1.2 + 15 commits) |
+| Hosting | GitHub Pages, deployed by GitHub Actions on pushes to `main` |
+| Domain | `me.paulohfm.com` (set in repo Settings -> Pages; DNS `CNAME` record) |
 
-Hugo is a fast and modern static site generator that makes it easy to build websites without the need for a database or server-side scripting.
+## Run it locally
 
-### Prerequisites
+```bash
+# 1. Clone WITH the theme submodule
+git clone --recurse-submodules https://github.com/PauloHFM/presentation_website.git
+cd presentation_website
+# (already cloned without it?  git submodule update --init --recursive)
 
-- Git installed on your local machine
-- Other installations: See `commands.md` file
+# 2. Install the tools (macOS shown; see docs/TUTORIAL.md for Linux/Windows)
+brew install hugo
+brew install dart-sass          # Dart Sass, needed for Hugo 0.170+
 
-### Installation
+# 3. Start the dev server (drafts included)
+hugo server -D
+```
 
-1. Clone the repository to your local machine:
+> If Homebrew says it could not link `sass` because `/opt/homebrew/bin/sass`
+> already exists, that is the npm package (`npm install -g sass`). Hugo cannot
+> use it (build error `unexpected EOF when executing "sass"`). Fix it with
+> `brew link --overwrite dart-sass`; check with `sass --version`.
 
-   ```bash
-   git clone URL_OF_YOUR_REPOSITORY
-   ```
+Open <http://localhost:1313>. A production-like build is `hugo --gc --minify`
+(output goes to `public/`, which is git-ignored).
 
-2. Navigate to the project directory:
+## Write a post
 
-   ```bash
-   cd project-name
-   ```
+```bash
+hugo new posts/my-post.md              # English
+hugo new posts/my-post.pt-br.md        # Portuguese-BR version of the same post
+```
 
-3. Run Hugo to generate the static files:
+New posts start as `draft = true` (see `archetypes/posts.md`). Remove that
+line (or set it to `false`) when the post is ready to publish. Pages and posts
+live in `content/`; the Portuguese version of a file just adds `.pt-br` before
+`.md`.
 
-   ```bash
-   hugo
-   ```
+## Change something and publish
 
-## Deploying Your Site
+1. Create a branch and make the change (check it with `hugo server -D`).
+2. Open a pull request. GitHub Actions builds the site as a check; nothing is
+   deployed from a PR.
+3. Merge to `main`. The workflow builds again and deploys to GitHub Pages.
 
-After generating your static site with Hugo, you can deploy it to GitHub Pages for free hosting.
+## Update the theme or Hugo
 
-### Steps to Deploy on GitHub Pages
+```bash
+# Theme: move the submodule to the latest upstream commit, then commit it
+git submodule update --remote themes/coder
+git add themes/coder && git commit -m "Update theme"
 
-1. Push the generated files to your GitHub repository.
-2. Go to your repository settings on GitHub and find the 'Pages' section.
-3. Select the branch and folder where your static files are located.
-4. Save the settings, and GitHub will provide you with a URL to access your site.
+# Hugo: bump HUGO_VERSION in .github/workflows/hugo.yml (and brew upgrade hugo)
+```
 
-## Continuous Integration (CI) with GitHub Actions
+Check the pull-request build before merging an update.
 
-GitHub Actions can automate the deployment process every time you push new changes to your repository.
+## Project layout
 
-### Setting Up CI
+| Path | What it is |
+|------|------------|
+| `hugo.toml` | Site configuration (languages, menu, social links, params) |
+| `content/` | Pages and posts (`about`, `contact`, `posts/`, `authors/`) |
+| `archetypes/` | Templates used by `hugo new` |
+| `layouts/` | Overrides of the theme (footer, `email` shortcode) |
+| `static/` | Files copied as-is (favicon, images) |
+| `themes/coder` | The theme (git submodule, do not edit in place) |
+| `.github/workflows/hugo.yml` | Build check on PRs, deploy on `main` |
+| `CNAME` | Records the custom domain for reference |
+| `docs/TUTORIAL.md` | Long Hugo walkthrough based on this repo (optional reading) |
+| `plan.md` | Current to-do list / ideas |
 
-1. Create a `.github/workflows` directory in your repository.
-2. Add a workflow file (e.g., `main.yml`) with the necessary steps to install Hugo and build your site.
-3. Commit and push the workflow file to your repository to enable GitHub Actions.
+## Domain
 
-## Domain Management
+`me.paulohfm.com` is a subdomain, so DNS only needs a `CNAME` record pointing
+to `PauloHFM.github.io`. In the repo go to **Settings -> Pages**, set the
+custom domain and enable **Enforce HTTPS**. The site's `baseURL` in
+`hugo.toml` must match (`https://me.paulohfm.com/`).
 
-This project uses custom domains for personal branding and organization.
+## License
 
-### Subdomains
-
-- Subdomains will be used to separate different sections of the site, such as:
-  - `personal-blog.domain.com`
-  - `professional-blog.domain.com`
-  - `other-section.domain.com`
-
-### Configuring Subdomains
-
-1. Set up DNS records (A or CNAME) for each subdomain in your domain provider's control panel.
-2. Point each subdomain to the corresponding hosting service where your content is located.
-
-## Other things to configure
-
-1. **Gravatar**: Add a Gravatar image to your site to personalize it.
-2. **Social Media Links**: Add links to your social media profiles for easy access.
-3. **Contact Form**: Implement a contact form for visitors to reach out to you.
-
-## Conclusion
-
-This README provides a general overview of the project setup and deployment. For more detailed instructions, please refer to the official Hugo documentation and GitHub Pages guidelines.
-
-Thank you for visiting this repository, and happy coding!
+See [LICENSE](LICENSE).

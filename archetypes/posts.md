@@ -1,12 +1,20 @@
-+++ 
++++
 draft = true
 date = {{ .Date }}
-title = ""
+title = "{{ replace .File.ContentBaseName "-" " " | title }}"
 description = ""
 slug = ""
 authors = ["paulohfm"]
 tags = []
 categories = []
-externalLink = ""
-series = ""
+series = []
+# featuredImage = "/images/posts/your-image.jpg"
 +++
+
+Write your introduction here. This will appear in post previews.
+
+<!--more-->
+
+## Main Content
+
+Your full article content goes here.
