@@ -2,10 +2,9 @@
 title = "About"
 description = "A human Data Engineer navigating this complex world"
 date = "2024-05-02"
-aliases = ["about", "about-me", "contact"]
+aliases = ["about", "about-me"]
 author = "paulohfm"
 +++
-
 
 Greetings! I'm Paulo, and I'm delighted you've found your way to my website.
 

@@ -3,6 +3,8 @@
 /resources/_gen/
 /hugo_stats.json
 
+*/Icon*
+
 # Ignore test files
 test/
 # Test posts

@@ -2,10 +2,9 @@
 title = "Sobre"
 description = "Um humano Engenheiro de Dados navegando por aí"
 date = "2024-05-02"
-aliases = ["sobre", "sobre-mim", "contato"]
+aliases = ["sobre", "sobre-mim"]
 author = "paulohfm"
 +++
-
 
 Saudações! Eu sou Paulo, e estou muito feliz que você encontrou meu site.
 

@@ -1,18 +1,19 @@
 {{ define "main" }}
 <main>
   <header>
-    <!-- O título da página de blog -->
     <h1>{{ .Title }}</h1>
   </header>
-  <!-- O conteúdo da página de blog, se houver -->
   {{ .Content }}
   <div class="posts-grid">
-    <!-- Itera sobre os posts do blog -->
-    {{ range .Site.Sections.posts.Pages }}
+    {{/* Use .Pages for current section or site.GetPage for cross-section */}}
+    {{ $posts := where site.RegularPages "Section" "posts" }}
+    {{ range $posts.ByDate.Reverse }}
     <article class="post">
       <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      <time>{{ .Date.Format "2 January 2006" }}</time>
-      <p>{{ .Summary }}</p>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ .Date | time.Format (site.Params.dateFormat | default "January 2, 2006") }}
+      </time>
+      {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
     </article>
     {{ end }}
   </div>
