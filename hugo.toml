@@ -1,12 +1,15 @@
-baseURL = "http://www.me.paulohfm.com/"
+baseURL = "https://me.paulohfm.com/"
 title = "Paulo Henrique F. Macedo"
 theme = "coder"
 languageCode = "en"
 defaultContentLanguage = "en"
-paginate = 6
+
 enableEmoji = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", ".*test_*"]
+
+[pagination]
+  pagerSize = 6
 
 [services]
 [services.disqus]
