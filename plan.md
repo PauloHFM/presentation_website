@@ -22,11 +22,10 @@ Rough priority order. Ticked items are done.
 4. **PT-BR CV link.** The CV button uses a single link for both languages;
    wire up the Portuguese CV per language (see the note in `hugo.toml`).
 5. **Projects page** (the menu entry is commented out for PT-BR).
-6. **Refresh the About pages (written in 2024).** "Over the past six years"
-   / "Nos últimos seis anos" and the "Presently / Atualmente" paragraph are
-   relative to 2024; update them to the current numbers and role. The
-   `LICENSE` header also still says "Copyright (c) 2024" (a range such as
-   2024-2026 is the usual way to write it).
+6. **Review the About pages (text dates from 2024).** The years of experience
+   were bumped to "eight" / "oito" as an estimate; confirm the number. The
+   "Presently / Atualmente" paragraph is unchanged from 2024; update it if
+   your role or focus changed.
 
 ## Later / optional
 
