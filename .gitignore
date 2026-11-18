@@ -25,6 +25,9 @@ Thumbs.db
 Icon?
 */Icon*
 
+# Personal planning notes (kept locally, not in the repo)
+/plan.md
+
 # Logs and databases
 *.log
 *.sql
